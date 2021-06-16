@@ -10,6 +10,7 @@ class CharactersScreen extends GetView<CharactersController> {
     return Obx(
       () => Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0xff7fcda6),
           title: controller.modeSearch.value
               ? TextField(
                   onChanged: controller.onChangedSearchTextField,

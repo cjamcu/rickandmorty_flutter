@@ -15,9 +15,8 @@ class LoginScreen extends GetView<LoginController> {
         child: Obx(
           () => Column(
             children: [
-              SizedBox(
-                height: Get.height * 0.4,
-              ),
+
+              Image.asset("assets/verify.png"),
               Text("Code Verification", style: AppStyle.titleBold),
               controller.randomCode == 0
                   ? CircularProgressIndicator()
@@ -52,6 +51,9 @@ class LoginScreen extends GetView<LoginController> {
                 height: Dimens.mediaSeparation,
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xff7fcda6)
+                ) ,
                   onPressed: () {
                     controller.validateCode(controller.inputCode);
                   },
