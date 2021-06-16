@@ -7,12 +7,38 @@ import 'widgets/character_item.dart';
 class CharactersScreen extends GetView<CharactersController> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Rickandmort"),
-      ),
-      body: Obx(
-        () => controller.characters.isEmpty
+    return Obx(
+      () => Scaffold(
+        appBar: AppBar(
+          title: controller.modeSearch.value
+              ? TextField(
+                  onChanged: controller.onChangedSearchTextField,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    labelStyle: TextStyle(color: Colors.white),
+                    hintStyle: TextStyle(color: Colors.white),
+                    hoverColor: Colors.white,
+                    focusColor: Colors.white,
+                    fillColor: Colors.white,
+                    hintText: '',
+                  ))
+              : Text("Rickandmort"),
+          actions: [
+            !controller.modeSearch.value
+                ? IconButton(
+                    onPressed: () {
+                      controller.modeSearch.toggle();
+                    },
+                    icon: Icon(Icons.search))
+                : IconButton(
+                    onPressed: () {
+                      controller.modeSearch.toggle();
+                      controller.closeSearch();
+                    },
+                    icon: Icon(Icons.close))
+          ],
+        ),
+        body: controller.characters.isEmpty
             ? Center(child: CircularProgressIndicator())
             : ListView(
                 children: List.generate(controller.characters.length, (index) {
@@ -20,7 +46,7 @@ class CharactersScreen extends GetView<CharactersController> {
                   return CharacterItem(
                     character: character,
                     onTap: () {
-                   controller.goToDetailCharacter(character);
+                      controller.goToDetailCharacter(character);
                     },
                   );
                 }),
