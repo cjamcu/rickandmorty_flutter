@@ -17,7 +17,7 @@ class ChartersRepositoryImpl extends ChartersRepository {
           name: element.name!,
           id: element.id!,
           species: element.species!,
-          status: element.status!, type: element.type!));
+          status: element.status!, type: element.type!, gender: element.gender!));
     });
 
     return charters;

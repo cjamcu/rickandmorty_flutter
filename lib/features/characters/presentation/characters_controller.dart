@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:ickandmorty_flutter/core/res/routes.dart';
 import 'package:ickandmorty_flutter/features/characters/domain/models/character.dart';
 import 'package:ickandmorty_flutter/features/characters/domain/usecase/find_characters.dart';
 
@@ -15,5 +16,9 @@ class CharactersController extends GetxController {
   void findCharacters() async {
     final listCharacter = await findCharactersUseCase.execute();
     characters.addAll(listCharacter);
+  }
+
+  void goToDetailCharacter(Character character) {
+    Get.toNamed(Routes.characterDetailRoute, arguments: {'character': character});
   }
 }

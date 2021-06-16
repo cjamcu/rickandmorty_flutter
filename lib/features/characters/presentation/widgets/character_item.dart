@@ -4,18 +4,17 @@ import 'package:ickandmorty_flutter/features/characters/domain/models/character.
 
 class CharacterItem extends StatelessWidget {
   final Character character;
-
-  const CharacterItem({Key? key, required this.character}) : super(key: key);
+  final GestureTapCallback onTap;
+  const CharacterItem({Key? key, required this.character, required this.onTap,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(character.name),
       subtitle: Text(character.status),
-      leading: Image.network(character.image),
-      onTap: (){
-
-      },
+      leading: Hero(tag: character.id,
+      child: Image.network(character.image)),
+      onTap: onTap,
     );
   }
 }

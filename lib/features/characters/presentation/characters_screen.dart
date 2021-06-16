@@ -15,11 +15,15 @@ class CharactersScreen extends GetView<CharactersController> {
         () => controller.characters.isEmpty
             ? Center(child: CircularProgressIndicator())
             : ListView(
-                children: List.generate(
-                    controller.characters.length,
-                    (index) => CharacterItem(
-                          character: controller.characters[index],
-                        )),
+                children: List.generate(controller.characters.length, (index) {
+                  final character = controller.characters[index];
+                  return CharacterItem(
+                    character: character,
+                    onTap: () {
+                   controller.goToDetailCharacter(character);
+                    },
+                  );
+                }),
               ),
       ),
     );

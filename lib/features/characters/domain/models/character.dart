@@ -5,6 +5,7 @@ class Character {
   final String species;
   final String status;
   final String type;
+  final String gender;
 
   Character(
       {required this.id,
@@ -12,5 +13,6 @@ class Character {
       required this.image,
       required this.species,
       required this.status,
-      required this.type});
+      required this.type,
+      required this.gender});
 }
