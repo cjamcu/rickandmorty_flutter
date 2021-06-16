@@ -1,16 +1,7 @@
-# ickandmorty_flutter
+# Rickandmorty_flutter
 
-A new Flutter project.
+App hecha con flutter para una entrevista técnica. La app cuenta con 3 pantallas , una de identificación , una donde muestra los elementos que le devuelve la api y otra que es el detalle de un item.
 
-## Getting Started
+Se usó la librería Getx para manejar el estado de la app  y hacer la inyección de dependencias. Se usó arquitectura hexagonal y su aplicación los principios SOLID.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
