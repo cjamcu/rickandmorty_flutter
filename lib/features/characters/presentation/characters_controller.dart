@@ -6,7 +6,7 @@ import 'package:ickandmorty_flutter/features/characters/domain/usecase/find_char
 class CharactersController extends GetxController {
   RxList<Character> characters = <Character>[].obs;
   List<Character> charactersFull = [];
-  var modeSearch = false.obs;
+  Rx<bool> modeSearch = false.obs;
 
   FindCharactersUseCase findCharactersUseCase = Get.find();
 
@@ -27,15 +27,15 @@ class CharactersController extends GetxController {
   }
 
   void onChangedSearchTextField(String value) {
-
-    if(value==""){
+    if (value == "") {
       this.characters.assignAll(charactersFull);
     }
-    final chartersFiltered = charactersFull.where((element) => element.name.contains(value));
+    final chartersFiltered =
+        charactersFull.where((element) => element.name.contains(value));
     this.characters.assignAll(chartersFiltered.toList());
   }
 
-  void closeSearch(){
+  void closeSearch() {
     this.characters.assignAll(charactersFull);
   }
 }

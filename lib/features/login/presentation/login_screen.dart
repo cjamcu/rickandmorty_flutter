@@ -14,8 +14,7 @@ class LoginScreen extends GetView<LoginController> {
         padding: const EdgeInsets.all(Dimens.paddingScreen),
         child: Obx(
           () => Column(
-            children: [
-
+            children: <Widget>[
               Image.asset("assets/verify.png"),
               Text("Code Verification", style: AppStyle.titleBold),
               controller.randomCode == 0

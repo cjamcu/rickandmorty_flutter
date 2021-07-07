@@ -3,8 +3,8 @@ import 'package:ickandmorty_flutter/core/res/routes.dart';
 import 'package:ickandmorty_flutter/features/login/domain/usecases/random_number_usecase.dart';
 
 class LoginController extends GetxController {
-  var _randomCode = 0.obs;
-  var _inputCode = "".obs;
+  Rx<int> _randomCode = 0.obs;
+  Rx<String> _inputCode = "".obs;
 
   set randomCode(int code) => _randomCode.value = code;
 
